@@ -8,8 +8,8 @@
     "start": "cross-env VERSION=${VERSION:-localversion} parcel --public-url ${PUBLIC_URL:-/deplacement-covid-19} ./src/index.html",
     "clean:dist": "rimraf dist",
     "prebuild": "run-s lint clean:dist",
-    "build": "parcel build --public-url ${PUBLIC_URL:-/deplacement-covid-19} ./src/index.html ./src/robots.txt ./src/sitemap.xml",
-    "postbuild": "PUBLIC_URL=${PUBLIC_URL:-/deplacement-covid-19} react-snap",
+    "build": "parcel build ./src/index.html",
+    "postbuild": "react-snap",
     "preserve": "npm run build",
     "serve": "serve dist",
     "serve:dist": "serve dist"
@@ -73,6 +73,9 @@
     "strategy": "default",
     "clearDist": false,
     "templatedURLs": {
-      "./": ["index.html"]
-  }  }
+      "./": [
+        "index.html"
+      ]
+    }
+  }
 }
