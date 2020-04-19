@@ -212,7 +212,7 @@ $("#field-birthday").onkeyup = function () {
 
 const snackbar = $("#snackbar");
 
-$("#generate-btn").addEventListener("click", async (event) => {
+const handleClick = async (event) => {
   event.preventDefault();
 
   saveProfile();
@@ -231,20 +231,10 @@ $("#generate-btn").addEventListener("click", async (event) => {
     snackbar.classList.remove("show");
     setTimeout(() => snackbar.classList.add("d-none"), 500);
   }, 6000);
-});
+};
 
-$$("input").forEach((input) => {
-  const exempleElt = input.parentNode.parentNode.querySelector(".exemple");
-  if (input.placeholder && exempleElt) {
-    input.addEventListener("input", (event) => {
-      if (input.value) {
-        exempleElt.innerHTML = "ex.&nbsp;: " + input.placeholder;
-      } else {
-        exempleElt.innerHTML = "";
-      }
-    });
-  }
-});
+$("#generate-btn").addEventListener("click", handleClick);
+$("#generate-btn-2").addEventListener("click", handleClick);
 
 const conditions = {
   "#field-firstname": {
