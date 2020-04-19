@@ -29,19 +29,20 @@ const generateQR = async (text) => {
   }
 };
 
-function fillForm() {
+function prepop() {
   const cookies = cookie.parse(document.cookie);
   console.log({ cookies });
-  $("#field-firstname").value = cookies.firstname;
-  $("#field-lastname").value = cookies.lastname;
-  $("#field-birthday").value = cookies.birthday;
-  $("#field-lieunaissance").value = cookies.lieunaissance;
-  $("#field-address").value = cookies.address;
-  $("#field-town").value = cookies.town;
-  $("#field-zipcode").value = cookies.zipcode;
+  if (cookies.firstname) $("#field-firstname").value = cookies.firstname;
+  if (cookies.lastname) $("#field-lastname").value = cookies.lastname;
+  if (cookies.birthday) $("#field-birthday").value = cookies.birthday;
+  if (cookies.lieunaissance)
+    $("#field-lieunaissance").value = cookies.lieunaissance;
+  if (cookies.address) $("#field-address").value = cookies.address;
+  if (cookies.town) $("#field-town").value = cookies.town;
+  if (cookies.zipcode) $("#field-zipcode").value = cookies.zipcode;
 }
 
-document.addEventListener("DOMContentLoaded", fillForm);
+document.addEventListener("DOMContentLoaded", prepop);
 
 function saveProfile() {
   for (const field of $$("#form-profile input")) {
