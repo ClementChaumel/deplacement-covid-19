@@ -8,15 +8,12 @@ import cookie from "cookie";
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
 import { faEye, faFilePdf } from "@fortawesome/free-solid-svg-icons";
 
-import "./check-updates";
 import { $, $$ } from "./dom-utils";
 import pdfBase from "./certificate.pdf";
 
 library.add(faEye, faFilePdf);
 
 dom.watch();
-
-document.cookie = cookie.serialize("pipi", "caca", { maxAge: 7884000 }); // lasts 3 months
 
 const generateQR = async (text) => {
   try {
